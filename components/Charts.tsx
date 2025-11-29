@@ -428,6 +428,7 @@ export default function Charts({ cityData, onResetChart, startDate, endDate }: C
                             yaxis: { ...commonLayout.yaxis, title: 'Index Value' },
                             hovermode: 'x',
                             showlegend: false,
+                            dragmode: false,
                         }}
                         config={{ responsive: true, displayModeBar: false }}
                         className="w-full"
@@ -495,6 +496,7 @@ export default function Charts({ cityData, onResetChart, startDate, endDate }: C
                             yaxis: { ...commonLayout.yaxis, title: 'Growth (%)' },
                             hovermode: 'x',
                             showlegend: false,
+                            dragmode: false,
                         }}
                         config={{ responsive: true, displayModeBar: false }}
                         className="w-full"
@@ -562,6 +564,8 @@ export default function Charts({ cityData, onResetChart, startDate, endDate }: C
                             yaxis: { ...commonLayout.yaxis, title: 'YoY Growth (%)' },
                             hovermode: 'x',
                             showlegend: false,
+                            dragmode: false,
+
                         }}
                         config={{ responsive: true, displayModeBar: false }}
                         className="w-full"
@@ -614,6 +618,7 @@ export default function Charts({ cityData, onResetChart, startDate, endDate }: C
                                 yaxis: { ...commonLayout.yaxis, title: 'Growth (%)' },
                                 xaxis: { ...commonLayout.xaxis, tickangle: -45 },
                                 showlegend: false,
+                                dragmode: false,
                             }}
                             config={{ responsive: true, displayModeBar: false }}
                             className="w-full h-full"
@@ -664,6 +669,7 @@ export default function Charts({ cityData, onResetChart, startDate, endDate }: C
                                 yaxis: { ...commonLayout.yaxis, title: 'Drawdown (%)' },
                                 xaxis: { ...commonLayout.xaxis, tickangle: -45 },
                                 showlegend: false,
+                                dragmode: false,
                             }}
                             config={{ responsive: true, displayModeBar: false }}
                             className="w-full h-full"
