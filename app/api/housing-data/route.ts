@@ -4,6 +4,7 @@ import Papa from 'papaparse';
 
 // UPDATE THIS NUMBER MONTHLY WHEN NEW DATA IS RELEASED
 const CURRENT_TABLE_ID = 18100205; // October 2025 data
+//18100205-eng
 
 let cachedData: any[] | null = null;
 let cacheTime: number = 0;
@@ -19,7 +20,7 @@ export async function GET() {
     console.log(`Fetching table ${CURRENT_TABLE_ID}...`);
 
     try {
-        const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(`https://www150.statcan.gc.ca/n1/tbl/csv/${CURRENT_TABLE_ID}-eng.zip`)}`;
+        const proxyUrl = `https://www150.statcan.gc.ca/n1/tbl/csv/18100205-eng.zip`;
 
         const response = await fetch(proxyUrl);
 
