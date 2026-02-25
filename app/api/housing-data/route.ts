@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import JSZip from 'jszip';
 import Papa from 'papaparse';
+import { ProxyAgent } from 'undici';
 
 // UPDATE THIS NUMBER MONTHLY WHEN NEW DATA IS RELEASED
 const CURRENT_TABLE_ID = 18100205; // October 2025 data
@@ -20,9 +21,19 @@ export async function GET() {
     console.log(`Fetching table ${CURRENT_TABLE_ID}...`);
 
     try {
-        const proxyUrl = `https://www150.statcan.gc.ca/n1/tbl/csv/18100205-eng.zip`;
+        const url = `https://www150.statcan.gc.ca/n1/tbl/csv/18100205-eng.zip`;
 
-        const response = await fetch(proxyUrl);
+        // Configure proxy if PROXY_URL environment variable is set
+        const proxyUrl = process.env.PROXY_URL;
+        const fetchOptions: RequestInit = {};
+
+        if (proxyUrl) {
+            const agent = new ProxyAgent(proxyUrl);
+            fetchOptions.dispatcher = agent;
+            console.log('Using proxy for request');
+        }
+
+        const response = await fetch(url, fetchOptions);
 
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
