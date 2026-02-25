@@ -25,7 +25,7 @@ export async function GET() {
 
         // Configure proxy if PROXY_URL environment variable is set
         const proxyUrl = process.env.PROXY_URL;
-        const fetchOptions: RequestInit = {};
+        const fetchOptions: RequestInit & { dispatcher?: ProxyAgent } = {};
 
         if (proxyUrl) {
             const agent = new ProxyAgent(proxyUrl);
